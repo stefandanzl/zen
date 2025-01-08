@@ -1,0 +1,39 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  # OBSIDIAN_VAULT: C:\PROJECTS\Obsidian\dev7\
+  DIR_PLUGIN: C:\PROJECTS\Obsidian\hirn\.obsidian\plugins\zen
+
+  #USER_WORKING_DIR: C:\PROJECTS\Obsidian\dev7
+  ENV_FILE: .env
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: copy
+  copy:
+    cmds:
+      - xcopy "{{.USER_WORKING_DIR}}\main.js" "{{.DIR_PLUGIN}}\main.js" /Y
+  build:
+    cmds:
+      - pnpm run build
+  patch:
+    cmds:
+      - pnpm version patch
+  git:
+    cmds:
+      - git add .
+      - git commit -m "task"
+      - git push
+  # test:
+  #   cmds:
+  #     - pnpm test -env-file .env
+  # research:
+  #   cmds:
+  #     - node tests/exclude/research.js
+  minify:
+    cmds:
+      - terser main.js -o main.min.js

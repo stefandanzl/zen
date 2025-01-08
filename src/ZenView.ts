@@ -1,7 +1,7 @@
 import {setIcon, View, WorkspaceLeaf} from "obsidian";
-import {VIEW_TYPE_ZEN} from "../constants";
-import Zen from "../main";
-import {GlobalPreferences, ZenPreferences} from "../utils/types";
+import {VIEW_TYPE_ZEN} from "./constants";
+import Zen from "./main";
+import {GlobalPreferences, ZenPreferences} from "./types";
 
 export class ZenLeaf extends WorkspaceLeaf {
 	tabHeaderEl: HTMLElement;

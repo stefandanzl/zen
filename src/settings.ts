@@ -1,6 +1,6 @@
 import {App, ButtonComponent, getIcon, PluginSettingTab, Setting} from "obsidian";
-import Zen from "../../main";
-import {Integration} from "../../plugin.integrations";
+import Zen from "./main";
+import {Integration} from "./plugin.integrations";
 
 export class SettingsTab extends PluginSettingTab {
 	plugin: Zen;

@@ -1,4 +1,4 @@
-import {IntegrationOptions} from "../plugin.integrations";
+import {IntegrationOptions} from "./plugin.integrations";
 
 export interface Settings {
 	enabled: boolean,

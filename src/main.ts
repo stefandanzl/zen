@@ -1,12 +1,12 @@
 import {
 	Plugin
 } from 'obsidian';
-import {DEFAULT_SETTINGS, Settings, ZenPreferences} from "./utils/types";
-import {SettingsTab} from "./components/Settings";
+import {DEFAULT_SETTINGS, Settings, ZenPreferences} from "./types";
+import {SettingsTab} from "./settings";
 
 import {VIEW_TYPE_ZEN} from "./constants";
-import {ZenLeaf, ZenView} from "./ui/ZenView";
-import {Integrator} from "./components/Intregrator";
+import {ZenLeaf, ZenView} from "./ZenView";
+import {Integrator} from "./integrator";
 import {pluginIntegrations} from "./plugin.integrations";
 
 export default class Zen extends Plugin {
@@ -22,7 +22,8 @@ export default class Zen extends Plugin {
 		this.addSettingTab(new SettingsTab(this.app, this));
 
 		this.registerView(VIEW_TYPE_ZEN, (leaf: ZenLeaf) => {
-			leaf.setPinned(true);
+			leaf.setPinned(false);
+			leaf.detach();
 			this.zenView = new ZenView(leaf, this);
 			return this.zenView;
 		});
